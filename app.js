@@ -6,10 +6,12 @@ const app = express();
 app.use(cors());
 
 const carsRouter = require("./routers/carsRouter");
+const usersRouter = require("./routers/usersRouter");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use("/cars", carsRouter);
+app.use("/users", usersRouter);
 
 const CONNECTION_STRING = "mongodb+srv://realibi:intersekt01@cluster0.8rc2y.mongodb.net/?retryWrites=true&w=majority";
 
