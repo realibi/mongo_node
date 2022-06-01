@@ -9,6 +9,12 @@ usersRouter.get('/', (req, res) => {
     });
 });
 
+usersRouter.get('/:id', async (req, res) => {
+    let id = req.params.id;
+    let user = await models.User.findById(id);
+    res.status(200).send(user);
+});
+
 usersRouter.post('/', (req, res) => {
     const { login, password, fullName } = req.body;
 
@@ -20,7 +26,7 @@ usersRouter.post('/', (req, res) => {
     });
 
     user.save(err => {
-        if(err) return console.log(err);
+        if(err) res.status(500).send("error");
         res.send("user saved");
     });
 });
