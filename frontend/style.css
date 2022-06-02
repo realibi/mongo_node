@@ -1,4 +1,4 @@
-.user_item{
+.item{
     border: 1px solid grey;
     border-radius: 8px;
     margin: 10px;
@@ -6,10 +6,7 @@
     font-size: 20px;
 }
 
-.car_item{
-    border: 1px solid grey;
-    border-radius: 8px;
-    margin: 10px;
-    padding: 10px;
-    font-size: 20px;
+.selected{
+    background-color: cornflowerblue;
+    color: #fff;
 }
