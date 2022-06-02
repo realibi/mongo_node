@@ -56,7 +56,7 @@ addCarBtn.click(async () => {
         'post',
         {
             userId: localStorage.getItem("selectedUserId"),
-            car: JSON.parse(localStorage.getItem("selectedCar"))
+            carId: JSON.parse(localStorage.getItem("selectedCar"))._id
         });
 });
 

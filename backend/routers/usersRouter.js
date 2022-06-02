@@ -32,9 +32,9 @@ usersRouter.post('/', (req, res) => {
 });
 
 usersRouter.post('/addCar', async (req, res) => {
-    const { userId, car } = req.body;
+    const { userId, carId } = req.body;
 
-    console.log(car);
+    let car = await models.Car.findById(carId);
 
     let user = await models.User.findById(userId);
     user.cars.push(car);
