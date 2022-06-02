@@ -34,6 +34,8 @@ usersRouter.post('/', (req, res) => {
 usersRouter.post('/addCar', async (req, res) => {
     const { userId, car } = req.body;
 
+    console.log(car);
+
     let user = await models.User.findById(userId);
     user.cars.push(car);
 
