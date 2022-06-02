@@ -35,7 +35,7 @@ async function drawUsers(){
     for(let item of usersArray){
         usersBlock.append(
             `
-                <div class="item" onclick="selectUser('${item._id}')">
+                <div class="user_item" onclick="selectUser('${item._id}')">
                     <p>Full name: ${item.fullName}</p>
                 </div>
             `
@@ -69,7 +69,7 @@ async function drawCars(){
     for(let item of carsArray){
         carsBlock.append(
             `
-                <div class='item' onclick='selectCar("${item._id}")'>
+                <div class='car_item' onclick='selectCar("${item._id}")'>
                     <p>Model: ${item.model}</p>
                     <p>Color: ${item.color}</p>
                     <p>Year: ${item.year}</p>
@@ -81,11 +81,24 @@ async function drawCars(){
 
 drawUsers().then(() => {
     drawCars().then(() => {
-        let userItems = $(".item");
+        let userItems = $(".user_item");
+        let carItems = $(".car_item");
 
         for(let item of userItems){
             item.addEventListener('click', () => {
-                item.classList.toggle('selected');
+                for(let user of userItems){
+                    user.classList.remove('selected');
+                }
+                item.classList.add('selected');
+            });
+        }
+
+        for(let item of carItems){
+            item.addEventListener('click', () => {
+                for(let car of carItems){
+                    car.classList.remove('selected');
+                }
+                item.classList.add('selected');
             });
         }
     });
